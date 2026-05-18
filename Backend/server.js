@@ -9,8 +9,7 @@ const cors = require("cors");
 const httpServer = createServer(app);
 
 const allowedOrigins = [
-  "https://your-chat-bot.vercel.app",
-];
+  process.env.CLIENT_URL,];
 
 const io = new Server(httpServer, {
   cors: {
