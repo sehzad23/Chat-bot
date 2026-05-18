@@ -8,7 +8,7 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:5173", // tera frontend port
+    origin: "https://your-chat-bot.vercel.app/", // tera frontend port
     methods: ["GET", "POST"],
   },
 });
