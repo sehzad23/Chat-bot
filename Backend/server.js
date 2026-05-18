@@ -4,16 +4,22 @@ const { createServer } = require("http");
 const { Server } = require("socket.io");
 const generateResponse = require("./src/services/ai-serive");
 const cors = require("cors");
+
+
 const httpServer = createServer(app);
+
+const allowedOrigins = [
+  "https://your-chat-bot.vercel.app",
+];
 
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://your-chat-bot.vercel.app/", // tera frontend port
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
   },
 });
 
-app.use(cors());
+app.use(cors({ origin: allowedOrigins }));
 
 const chatHistory = [
   {
